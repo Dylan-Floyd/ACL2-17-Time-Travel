@@ -1,70 +1,55 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+useTimeTravel
+=============
 
-## Available Scripts
+Demo
+----
 
-In the project directory, you can run:
+[https://alchemy-react-use-time-travel.netlify.app](https://alchemy-react-use-time-travel.netlify.app)
 
-### `npm start`
+### Learning Objectives
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+*   Use custom hooks to bundle together multiple useState & useEffect calls
+*   Use react-testing-library to test components
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Description
 
-### `npm test`
+You’ve been tasked with implementing a date tracking feature in your company’s audit log system. The security team needs a way to input dates into the system, change them, and also undo/redo their changes. No funny business here, I’m sure…
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Your objective is to create a custom hook that tracks changes to input values over time. You can use a date input for this ([`<input type="date" />`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date)).
 
-### `npm run build`
+Your `useTimeTravel` function should return:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+*   `save` - a function to set & save a new current value
+*   `undo` - a function that sets the current value to the previous value
+*   `redo` - a function that sets the current value to the next value
+*   `current` - the current value the input should use
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Your app should contain an input, two buttons (undo & redo), and display the current value.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Acceptance Criteria
 
-### `npm run eject`
+*   The hook should behave as follows:
+    *   select a date (e.g. 2022-01-01), see the date change (to 2022-01-01)
+    *   select another date (e.g. 2022-02-22), see the date change to the new date (to 2022-02-22)
+    *   select another date (e.g. 2022-03-14), see the date change to the new date (to 2022-03-14)
+    *   press undo, see the date change to the second date (to 2022-02-22)
+    *   press undo, see the date change to the first date (to 2022-01-01)
+    *   press redo, see the date change to the second date (to 2022-02-22)
+    *   select another date (e.g. 2022-04-04), see the date change to the new date (to 2022-04-04)
+    *   press undo, see the date change to the second date (to 2022-02-22)
+    *   press undo, see the date change to the first date (to 2022-01-01)
+    *   press redo, see the date change to the second date (to 2022-02-22)
+    *   press redo, see the date change to the fourth date (to 2022-04-04)
+    *   press redo, see the date change to the third date (to 2022-03-14)
+*   A test exists that validates this behavior for your App
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Rubric
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| Task | Points |
+| ----- | ---- |
+| `save` function implemented | 4 |
+| `undo` function implemented | 4 |
+| `redo` function implemented | 4 |
+| `current` value returned correctly | 4 |
+| Behavior test | 4 |
